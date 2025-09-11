@@ -1,0 +1,9 @@
+Temp 12°C → System Shutdown Too Cold
+Temp 22°C → Heater ON
+Temp 24°C → No Change, Heater is ON
+Temp 25°C → No Change, Heater is ON
+Temp 28°C → Heater OFF
+Temp 32°C → No Change, Heater is OFF + Fan ON
+Temp 27°C → No Change, Heater is OFF
+Temp 15°C → Heater ON
+Temp 1°C → System Shutdown Too Cold
