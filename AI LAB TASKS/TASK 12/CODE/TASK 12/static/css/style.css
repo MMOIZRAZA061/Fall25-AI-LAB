@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.recommendation-form {
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #4f46e5;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+}
+
+.error {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 1rem;
+    margin: 1rem 2rem;
+    border-radius: 8px;
+    border: 1px solid #fecaca;
+}
+
+.info {
+    padding: 1rem 2rem 2rem;
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+}
+
+.info h3 {
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.info p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* Result Page Styles */
+.result-container {
+    padding: 2rem;
+}
+
+.recommendation-card {
+    background: #f0f9ff;
+    border: 2px solid #bae6fd;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.recommendation-card h2 {
+    color: #0369a1;
+    margin-bottom: 1rem;
+}
+
+.course-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1e40af;
+    margin-bottom: 1rem;
+}
+
+.confidence {
+    font-size: 1.1rem;
+    color: #059669;
+}
+
+.user-preferences {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.user-preferences h3 {
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.preferences p {
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+}
+
+.actions {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #4f46e5;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #4338ca;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .recommendation-form {
+        padding: 1rem;
+    }
+}

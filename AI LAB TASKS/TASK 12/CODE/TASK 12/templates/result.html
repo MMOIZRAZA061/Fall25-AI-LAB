@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Recommendation Result - Course Recommendation System{% endblock %}
+
+{% block content %}
+<div class="result-section">
+    <div class="result-container">
+        <div class="result-header">
+            <h1 class="result-title">
+                <i class="fas fa-trophy"></i>
+                Your Perfect Course Match!
+            </h1>
+            <p class="result-subtitle">Based on your preferences, here's our recommendation</p>
+        </div>
+
+        <div class="recommendation-card">
+            <div class="course-badge">
+                <i class="fas fa-gem"></i>
+                RECOMMENDED COURSE
+            </div>
+            <h2 class="course-title">{{ recommendation }}</h2>
+            
+            {% if confidence != "N/A" %}
+            <div class="confidence-meter">
+                <div class="confidence-label">
+                    <span>Confidence Score:</span>
+                    <strong class="confidence-value">{{ confidence }}%</strong>
+                </div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill" style="width: {{ confidence }}%"></div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="user-preferences">
+            <h3>
+                <i class="fas fa-user-cog"></i>
+                Your Preferences
+            </h3>
+            <div class="preferences-grid">
+                <div class="preference-item">
+                    <span class="preference-label">Interests:</span>
+                    <span class="preference-value">{{ user_input.interests }}</span>
+                </div>
+                <div class="preference-item">
+                    <span class="preference-label">Category:</span>
+                    <span class="preference-value">{{ user_input.category }}</span>
+                </div>
+                <div class="preference-item">
+                    <span class="preference-label">Difficulty:</span>
+                    <span class="preference-value">{{ user_input.preferred_difficulty }}</span>
+                </div>
+                <div class="preference-item">
+                    <span class="preference-label">Experience:</span>
+                    <span class="preference-value">{{ user_input.past_experience }}</span>
+                </div>
+                <div class="preference-item">
+                    <span class="preference-label">Language:</span>
+                    <span class="preference-value">{{ user_input.preferred_language }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="{{ url_for('home') }}" class="btn btn-primary">
+                <i class="fas fa-redo"></i>
+                Get Another Recommendation
+            </a>
+            <button onclick="shareResult()" class="btn btn-secondary">
+                <i class="fas fa-share"></i>
+                Share Result
+            </button>
+        </div>
+
+        <div class="suggestion-note">
+            <i class="fas fa-lightbulb"></i>
+            <p><strong>Pro Tip:</strong> This recommendation is based on our AI model trained on thousands of course preferences. Consider this as a starting point for your learning journey!</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

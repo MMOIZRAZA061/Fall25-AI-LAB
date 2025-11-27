@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <i class="fas fa-brain"></i>
+            Smart Course Recommendations
+        </h1>
+        <p class="hero-subtitle">Discover the perfect course based on your interests, skills, and preferences</p>
+    </div>
+</div>
+
+<div class="form-section">
+    <div class="form-container">
+        {% if error %}
+        <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if show_about %}
+        <div class="about-section">
+            <h2>About This System</h2>
+            <p>This intelligent course recommendation system uses machine learning to suggest the most suitable courses based on your preferences. Our model was trained on a diverse dataset of 5000+ course preferences.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI-Powered</h3>
+                    <p>Uses Random Forest algorithm for accurate predictions</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast & Reliable</h3>
+                    <p>Get instant recommendations in seconds</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>High Accuracy</h3>
+                    <p>Trained model with excellent prediction accuracy</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <form id="recommendation-form" action="{{ url_for('predict') }}" method="POST">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="interests">
+                        <i class="fas fa-heart"></i>
+                        Your Interests
+                    </label>
+                    <select id="interests" name="interests" required>
+                        <option value="">Choose your interest area</option>
+                        {% for interest in interests %}
+                        <option value="{{ interest }}">{{ interest }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">
+                        <i class="fas fa-tags"></i>
+                        Category
+                    </label>
+                    <select id="category" name="category" required>
+                        <option value="">Select category</option>
+                        {% for category in categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferred_difficulty">
+                        <i class="fas fa-signal"></i>
+                        Difficulty Level
+                    </label>
+                    <select id="preferred_difficulty" name="preferred_difficulty" required>
+                        <option value="">Select difficulty</option>
+                        {% for difficulty in difficulties %}
+                        <option value="{{ difficulty }}">{{ difficulty }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="past_experience">
+                        <i class="fas fa-user-graduate"></i>
+                        Your Experience
+                    </label>
+                    <select id="past_experience" name="past_experience" required>
+                        <option value="">Select experience level</option>
+                        {% for experience in experiences %}
+                        <option value="{{ experience }}">{{ experience }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferred_language">
+                        <i class="fas fa-language"></i>
+                        Preferred Language
+                    </label>
+                    <select id="preferred_language" name="preferred_language" required>
+                        <option value="">Select language</option>
+                        {% for language in languages %}
+                        <option value="{{ language }}">{{ language }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-magic"></i>
+                Get Course Recommendation
+            </button>
+        </form>
+
+        <div class="stats">
+            <div class="stat">
+                <h3>5000+</h3>
+                <p>Training Samples</p>
+            </div>
+            <div class="stat">
+                <h3>95%+</h3>
+                <p>Accuracy</p>
+            </div>
+            <div class="stat">
+                <h3>40+</h3>
+                <p>Interest Areas</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
